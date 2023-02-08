@@ -21,9 +21,10 @@ namespace Crypto_Currency.MarketClasses
 
             var responseData = JsonConvert.DeserializeObject<dynamic>(responseBody);
             dynamic Data = responseData["data"];
-            
-            List<CoinsList> list = new List<CoinsList>();
+
             int id = 1;
+            List<CoinsList> list = new List<CoinsList>();
+            
             foreach (var element in Data)
             {
                 string img_Uri = $"https://assets.coincap.io/assets/icons/{((string)element.symbol).ToLower()}@2x.png";
