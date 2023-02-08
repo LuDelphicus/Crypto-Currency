@@ -1,4 +1,5 @@
-﻿using System.Windows.Media.Imaging;
+﻿using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace Crypto_Currency.MarketClasses
 {
@@ -7,5 +8,7 @@ namespace Crypto_Currency.MarketClasses
         public int Id { get; set; }
         public string Name { get; set; }
         public BitmapImage ImagePath { get; set; }
+        public string Changin24h { get; set; }
+        public string Chaning24hColor { get; set; }
     }
 }

@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using System.Windows.Media.Imaging;
+using System.Windows.Media;
 
 namespace Crypto_Currency.MarketClasses
 {
@@ -28,12 +29,25 @@ namespace Crypto_Currency.MarketClasses
             foreach (var element in Data)
             {
                 string img_Uri = $"https://assets.coincap.io/assets/icons/{((string)element.symbol).ToLower()}@2x.png";
+                
+                float changing24H = (float)Math.Round((double)element.changePercent24Hr, 2);
+                string changing24hColor;
+                if (changing24H > 0)
+                {
+                    changing24hColor = "#008A45";
+                }
+                else
+                {
+                    changing24hColor = "#CC1010";
+                }
 
                 list.Add(new CoinsList()
                 {
                     Id = id,
-                    Name = $"{id}. {(string)element.name}",
-                    ImagePath = new BitmapImage(new Uri(img_Uri))
+                    Name = $"{(string)element.name}",
+                    ImagePath = new BitmapImage(new Uri(img_Uri)),
+                    Changin24h = $"{changing24H.ToString()}%",
+                    Chaning24hColor = changing24hColor
                 });
 
                 id++;

@@ -7,15 +7,42 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" Name="listbox1" Background="#FF5C179C">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="{Binding ImagePath}" Width='40' Height='40'></Image>
-                        <TextBlock Text="{Binding Name}" Padding="5,10,10,10" VerticalAlignment="Center" FontFamily="Roboto" FontSize="15" Foreground ="#FFFFFF"></TextBlock>
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+        <ListView d:ItemsSource="{d:SampleData ItemCount=5}" Name="listbox1" Background="#FF5C179C">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="#">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Id}" Padding="5,10,10,10" VerticalAlignment="Center" FontFamily="Roboto" FontSize="15" Foreground ="#FFFFFF"></TextBlock>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn Width="55">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding ImagePath}" Width='40' Height='40'></Image>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    
+                    <GridViewColumn Header="Asset">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}" Padding="5,10,10,10" FontFamily="Roboto" FontSize="15" Foreground ="#FFFFFF"></TextBlock>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn Header="24h Change">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Changin24h}" Padding="10,10,10,10" FontFamily="Roboto" FontSize="15" Foreground="{Binding Chaning24hColor}"></TextBlock>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </Window>
