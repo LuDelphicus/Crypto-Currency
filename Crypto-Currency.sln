@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crypto-Currency", "Crypto-Currency\Crypto-Currency.csproj", "{60D17D58-32E6-4CF7-8B0B-4BAF03A446BA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{60D17D58-32E6-4CF7-8B0B-4BAF03A446BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60D17D58-32E6-4CF7-8B0B-4BAF03A446BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60D17D58-32E6-4CF7-8B0B-4BAF03A446BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60D17D58-32E6-4CF7-8B0B-4BAF03A446BA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E25AAE7C-F16C-4F0C-BE67-25FDA1D87228}
+	EndGlobalSection
+EndGlobal
