@@ -31,15 +31,16 @@ namespace Crypto_Currency
             listbox1.ItemsSource = list;
 
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listbox1.ItemsSource); // Задаю внимание на содержание ListBox'a
-            view.Filter = UseFilter; // Делаю фильтр через ф-ию UseFilter
+            view.Filter = UseFilter;
         }
             
         public bool UseFilter(object coin)
         {
             if (String.IsNullOrEmpty(SearchBoxFilter.Text))
-                return true; // Ничего не ищу
+                return true;
             else
-                return ((coin as CoinsList).Symbol.IndexOf(SearchBoxFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0); // При нахождении ставит value. Закрываю bool при помощи сравнения с 0
+                return ((coin as CoinsList). // Преобразовываю объект coin к CoinsList
+                    Symbol.IndexOf(SearchBoxFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0); // Нахожу параметр в listbox1 при помощи SearcBox строки
         }
         public void SearchBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
