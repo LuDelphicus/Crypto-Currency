@@ -48,6 +48,7 @@ namespace Crypto_Currency.MarketClasses
                 {
                     Id = id,
                     Name = $"{(string)element.name}",
+                    Symbol = (string)element.symbol,
                     ImagePath = new BitmapImage(new Uri(img_Uri)),
                     Price = $"${price.ToString()}",
                     Changin24h = $"{changing24H.ToString()}%",

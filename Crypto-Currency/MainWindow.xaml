@@ -6,51 +6,56 @@
         xmlns:local="clr-namespace:Crypto_Currency"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <ListView d:ItemsSource="{d:SampleData ItemCount=5}" Name="listbox1" Background="#FF5C179C">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="#">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding Id}" Padding="5,10,10,10" VerticalAlignment="Center" FontFamily="Roboto" FontSize="15" Foreground ="#FFFFFF"></TextBlock>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
+    <DockPanel Margin="10">
+        <TextBox DockPanel.Dock="Top" Margin="0,0,0,10" Name="SearchBoxFilter" TextChanged="SearchBox_TextChanged" />
+        
+        <Grid>
+            <ListView d:ItemsSource="{d:SampleData ItemCount=5}" Name="listbox1" Background="#FF5C179C" BorderBrush="Black" IsTextSearchEnabled="True" TextSearch.TextPath="Description">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="#">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Id}" Padding="5,10,10,10" VerticalAlignment="Center" FontFamily="Roboto" FontSize="15" Foreground ="#FFFFFF"></TextBlock>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
 
-                    <GridViewColumn Width="55">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <Image Source="{Binding ImagePath}" Width='40' Height='40'></Image>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                    
-                    <GridViewColumn Header="ASSET">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding Name}" Padding="5,10,10,10" FontFamily="Roboto" FontSize="15" Foreground ="#FFFFFF"></TextBlock>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
+                        <GridViewColumn Width="55">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Source="{Binding ImagePath}" Width='40' Height='40'></Image>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
 
-                    <GridViewColumn Header="PRICE">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding Price}" Padding="10,10,10,10" FontFamily="Roboto" FontSize="15" Foreground="#FFFFFF"></TextBlock>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                    
-                    <GridViewColumn Header="24H CHANGE">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding Changin24h}" Padding="10,10,10,10" FontFamily="Roboto" FontSize="15" Foreground="{Binding Chaning24hColor}"></TextBlock>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                </GridView>
-            </ListView.View>
-        </ListView>
-    </Grid>
+                        <GridViewColumn Header="ASSET">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Name}" Padding="5,10,10,10" FontFamily="Roboto" FontSize="15" Foreground ="#FFFFFF"></TextBlock>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Header="PRICE">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Price}" Padding="10,10,10,10" FontFamily="Roboto" FontSize="15" Foreground="#FFFFFF"></TextBlock>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Header="24H CHANGE">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Changin24h}" Padding="10,10,10,10" FontFamily="Roboto" FontSize="15" Foreground="{Binding Chaning24hColor}"></TextBlock>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
+    </DockPanel>
+    
 </Window>

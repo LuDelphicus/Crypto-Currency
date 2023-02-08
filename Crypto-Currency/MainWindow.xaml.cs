@@ -29,6 +29,21 @@ namespace Crypto_Currency
             IMarkets coincap = new CoinCap();
             var list = coincap.GetCoinsList();
             listbox1.ItemsSource = list;
+
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listbox1.ItemsSource); // Задаю внимание на содержание ListBox'a
+            view.Filter = UseFilter; // Делаю фильтр через ф-ию UseFilter
+        }
+            
+        public bool UseFilter(object coin)
+        {
+            if (String.IsNullOrEmpty(SearchBoxFilter.Text))
+                return true; // Ничего не ищу
+            else
+                return ((coin as CoinsList).Symbol.IndexOf(SearchBoxFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0); // При нахождении ставит value. Закрываю bool при помощи сравнения с 0
+        }
+        public void SearchBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            CollectionViewSource.GetDefaultView(listbox1.ItemsSource).Refresh(); // Обновляю к исходной фокусировку
         }
     }
 }
