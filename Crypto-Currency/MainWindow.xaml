@@ -26,7 +26,7 @@
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     
-                    <GridViewColumn Header="Asset">
+                    <GridViewColumn Header="ASSET">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBlock Text="{Binding Name}" Padding="5,10,10,10" FontFamily="Roboto" FontSize="15" Foreground ="#FFFFFF"></TextBlock>
@@ -34,7 +34,15 @@
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
 
-                    <GridViewColumn Header="24h Change">
+                    <GridViewColumn Header="PRICE">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Price}" Padding="10,10,10,10" FontFamily="Roboto" FontSize="15" Foreground="#FFFFFF"></TextBlock>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    
+                    <GridViewColumn Header="24H CHANGE">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBlock Text="{Binding Changin24h}" Padding="10,10,10,10" FontFamily="Roboto" FontSize="15" Foreground="{Binding Chaning24hColor}"></TextBlock>

@@ -29,9 +29,12 @@ namespace Crypto_Currency.MarketClasses
             foreach (var element in Data)
             {
                 string img_Uri = $"https://assets.coincap.io/assets/icons/{((string)element.symbol).ToLower()}@2x.png";
-                
+
+                float price = (float)Math.Round((double)element.priceUsd, 2);
+
                 float changing24H = (float)Math.Round((double)element.changePercent24Hr, 2);
                 string changing24hColor;
+
                 if (changing24H > 0)
                 {
                     changing24hColor = "#008A45";
@@ -46,6 +49,7 @@ namespace Crypto_Currency.MarketClasses
                     Id = id,
                     Name = $"{(string)element.name}",
                     ImagePath = new BitmapImage(new Uri(img_Uri)),
+                    Price = $"${price.ToString()}",
                     Changin24h = $"{changing24H.ToString()}%",
                     Chaning24hColor = changing24hColor
                 });
