@@ -7,6 +7,15 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" Name="listbox1">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="{Binding ImagePath}" Width='40' Height='40'></Image>
+                        <TextBlock Text="{Binding Name}" Padding="5,10,10,10" VerticalAlignment="Center" FontSize="15"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </Window>

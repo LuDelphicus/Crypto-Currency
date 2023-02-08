@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Crypto_Currency.MarketClasses;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,10 @@ namespace Crypto_Currency
         public MainWindow()
         {
             InitializeComponent();
+
+            IMarkets coincap = new CoinCap();
+            var list = coincap.GetCoinsList();
+            listbox1.ItemsSource = list;
         }
     }
 }
