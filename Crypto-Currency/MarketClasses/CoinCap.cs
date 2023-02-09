@@ -15,6 +15,7 @@ namespace Crypto_Currency.MarketClasses
         private string coinUri = "https://api.coincap.io/v2/assets/?limit=10";
         public static HttpClientHandler httpClientHandler = new HttpClientHandler();
         private static HttpClient httpClient = new HttpClient();
+
         public List<CoinsList> GetCoinsList()
         {
             var response = httpClient.GetAsync(coinUri).Result;
@@ -31,7 +32,6 @@ namespace Crypto_Currency.MarketClasses
                 string img_Uri = $"https://assets.coincap.io/assets/icons/{((string)element.symbol).ToLower()}@2x.png";
 
                 float price = (float)Math.Round((double)element.priceUsd, 2);
-
                 float changing24H = (float)Math.Round((double)element.changePercent24Hr, 2);
                 string changing24hColor;
 

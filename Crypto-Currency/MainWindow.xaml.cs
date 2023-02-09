@@ -33,18 +33,27 @@ namespace Crypto_Currency
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listbox1.ItemsSource); // Задаю внимание на содержание ListBox'a
             view.Filter = UseFilter;
         }
-            
-        public bool UseFilter(object coin)
+        
+        private bool UseFilter(object coin)
         {
-            if (String.IsNullOrEmpty(SearchBoxFilter.Text))
+            if (String.IsNullOrEmpty(SearchBoxFilter.Text)) {
                 return true;
+            } 
+            else if ((coin as CoinsList).
+                Symbol.IndexOf(SearchBoxFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0) 
+            {
+                return true;
+            }
             else
-                return ((coin as CoinsList). // Преобразовываю объект coin к CoinsList
-                    Symbol.IndexOf(SearchBoxFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0); // Нахожу параметр в listbox1 при помощи SearcBox строки
-        }
-        public void SearchBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+            {
+                return ((coin as CoinsList).
+                Name.IndexOf(SearchBoxFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+            }
+         }
+
+        private void SearchBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
-            CollectionViewSource.GetDefaultView(listbox1.ItemsSource).Refresh(); // Обновляю к исходной фокусировку
+            CollectionViewSource.GetDefaultView(listbox1.ItemsSource).Refresh(); // refresh to default focus
         }
     }
 }
