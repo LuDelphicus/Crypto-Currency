@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using System.Windows.Media.Imaging;
 using System.Windows.Media;
+using System.Windows.Markup;
 
 namespace Crypto_Currency.MarketClasses
 {
@@ -22,34 +23,30 @@ namespace Crypto_Currency.MarketClasses
             string responseBody = response.Content.ReadAsStringAsync().Result;
 
             var responseData = JsonConvert.DeserializeObject<dynamic>(responseBody);
-            dynamic Data = responseData["data"];
+            dynamic data = responseData["data"];
 
+            var list = CreateCoinsList(data);
+            return list;
+        }
+
+        private List<CoinsList> CreateCoinsList(dynamic data)
+        {
             int id = 1;
-            List<CoinsList> list = new List<CoinsList>();
-            
-            foreach (var element in Data)
-            {
-                string img_Uri = $"https://assets.coincap.io/assets/icons/{((string)element.symbol).ToLower()}@2x.png";
+            List<CoinsList> resultList = new List<CoinsList>();
 
+            foreach (var element in data)
+            {
+                string imgUri = $"https://assets.coincap.io/assets/icons/{((string)element.symbol).ToLower()}@2x.png";
                 float price = (float)Math.Round((double)element.priceUsd, 2);
                 float changing24H = (float)Math.Round((double)element.changePercent24Hr, 2);
-                string changing24hColor;
+                string changing24hColor = (changing24H > 0) ? "#008A45" : "#CC1010";
 
-                if (changing24H > 0)
-                {
-                    changing24hColor = "#008A45";
-                }
-                else
-                {
-                    changing24hColor = "#CC1010";
-                }
-
-                list.Add(new CoinsList()
+                resultList.Add(new CoinsList()
                 {
                     Id = id,
-                    Name = $"{(string)element.name}",
+                    Name = (string)element.name,
                     Symbol = (string)element.symbol,
-                    ImagePath = new BitmapImage(new Uri(img_Uri)),
+                    ImagePath = new BitmapImage(new Uri(imgUri)),
                     Price = $"${price.ToString()}",
                     Changin24h = $"{changing24H.ToString()}%",
                     Chaning24hColor = changing24hColor
@@ -57,8 +54,7 @@ namespace Crypto_Currency.MarketClasses
 
                 id++;
             }
-
-            return list;
+            return resultList;
         }
     }
 }

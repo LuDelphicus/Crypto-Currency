@@ -1,7 +1,5 @@
-﻿using Crypto_Currency.MarketClasses;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,12 +15,14 @@ using System.Windows.Shapes;
 
 namespace Crypto_Currency
 {
-    public partial class MainWindow : Window
+    /// <summary>
+    /// Логика взаимодействия для CoinAnalytics.xaml
+    /// </summary>
+    public partial class CoinAnalytics : Page
     {
-        public MainWindow()
+        public CoinAnalytics()
         {
             InitializeComponent();
-            MainFrame.Content = new CoinsPage();
         }
     }
 }
