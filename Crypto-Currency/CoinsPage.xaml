@@ -10,7 +10,7 @@
     <DockPanel Margin="10">
         <TextBox DockPanel.Dock="Top" Margin="0,0,0,10" Name="SearchBoxFilter" TextChanged="SearchBox_TextChanged" />
         <Grid>
-            <ListView d:ItemsSource="{d:SampleData ItemCount=5}" Name="listbox1" Background="#FF5C179C" BorderBrush="Black" IsTextSearchEnabled="True" TextSearch.TextPath="Description">
+            <ListView d:ItemsSource="{d:SampleData ItemCount=5}" Name="listbox1" Background="#FF5C179C" BorderBrush="Black" IsTextSearchEnabled="True" TextSearch.TextPath="Description" MouseLeftButtonUp="CoinsPage_SendData">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="#">
@@ -53,11 +53,6 @@
                         </GridViewColumn>
                     </GridView>
                 </ListView.View>
-                <ListView.ItemContainerStyle>
-                    <Style TargetType="ListViewItem">
-                        <EventSetter Event="PreviewMouseLeftButtonDown" Handler="ListViewItem_PreviewMouseLeftButtonDown" />
-                    </Style>
-                </ListView.ItemContainerStyle>
             </ListView>
         </Grid>
     </DockPanel>

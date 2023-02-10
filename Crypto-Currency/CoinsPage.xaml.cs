@@ -1,18 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using Crypto_Currency.MarketClasses;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
+
 
 namespace Crypto_Currency
 {
@@ -23,7 +15,7 @@ namespace Crypto_Currency
             InitializeComponent();
 
             IMarkets coincap = new CoinCap();
-            var list = coincap.GetCoinsList();
+            var list = coincap.GetCoinsList(); // Load CoinsList
             listbox1.ItemsSource = list;
 
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listbox1.ItemsSource); // Задаю внимание на содержание ListBox'a
@@ -46,9 +38,13 @@ namespace Crypto_Currency
             CollectionViewSource.GetDefaultView(listbox1.ItemsSource).Refresh(); // refresh to default focus
         }
 
-        private void ListViewItem_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void CoinsPage_SendData(object sender, MouseButtonEventArgs e)
         {
-            CoinAnalytics coinAnalytics = new CoinAnalytics();
+            ListView ListItems = (ListView)sender;
+            var selectedItem = ListItems.SelectedItem;
+            var data = (CoinsList)selectedItem; // Data of selected row
+
+            CoinAnalytics coinAnalytics = new CoinAnalytics(data);
             NavigationService.Navigate(coinAnalytics);
         }
     }
