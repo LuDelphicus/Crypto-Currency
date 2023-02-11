@@ -6,9 +6,33 @@
       xmlns:local="clr-namespace:Crypto_Currency"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="CoinAnalytics">
+      Title="CoinAnalytics"
+      Background="#222222"
+      >
+    <DockPanel>
+        <Grid>
+            <DockPanel Margin="0,1,575,-1">
+                <Label Content="Bitcoin" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="#FFFF" FontFamily="Cascadia Code" FontSize="30"/>
+                <Label Content="BTC" HorizontalAlignment="Left" Margin="-4,16,0,0" VerticalAlignment="Top" Foreground="#FFFF" FontFamily="Cascadia Code" FontSize="14"/>
+            </DockPanel>
 
-    <Grid>
-        <Button Content="Button" HorizontalAlignment="Center" Margin="0,175,0,0" VerticalAlignment="Top" Height="90" Width="320"/>
-    </Grid>
+            <Label Content="$16,682.25" HorizontalAlignment="Left" Margin="10,89,0,0" VerticalAlignment="Top" Foreground="#FFFF" FontFamily="Cascadia Code" FontSize="35"/>
+            <Label Content="Price" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top" Foreground="#FFFF" FontFamily="Cascadia Code" FontSize="14"/>
+            <Label Content="➤" Margin="770,3,0,0" VerticalAlignment="Top" Foreground="#FFFF" FontFamily="Cascadia Code" FontSize="20" RenderTransformOrigin="0.5,0.5" MouseLeftButtonUp="BackPage">
+                <Label.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Label.RenderTransform>
+            </Label>
+
+            <Label Content="24H %" HorizontalAlignment="Left" Margin="565,67,0,0" VerticalAlignment="Top" Foreground="#FFFF" FontFamily="Cascadia Code" FontSize="20"/>
+            <Label Content="{Binding CoinInfo[0].Changin24h}"  HorizontalAlignment="Right" Margin="0,67,10,0" VerticalAlignment="Top" Foreground="DarkRed" FontFamily="Cascadia Code" FontSize="20"/>
+            <Label Content="$15,554.48" HorizontalAlignment="Right" Margin="0,106,10,0" VerticalAlignment="Top" Foreground="DarkRed" FontFamily="Cascadia Code" FontSize="20"/>
+
+        </Grid>
+    </DockPanel>
 </Page>

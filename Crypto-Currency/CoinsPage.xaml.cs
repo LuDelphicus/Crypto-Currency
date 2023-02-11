@@ -41,10 +41,9 @@ namespace Crypto_Currency
         private void CoinsPage_SendData(object sender, MouseButtonEventArgs e)
         {
             ListView ListItems = (ListView)sender;
-            var selectedItem = ListItems.SelectedItem;
-            var data = (CoinsList)selectedItem; // Data of selected row
+            var data = (CoinsList)ListItems.SelectedItem; // Data of selected row
 
-            CoinAnalytics coinAnalytics = new CoinAnalytics(data);
+            CoinAnalytics coinAnalytics = new CoinAnalytics(data.Name);
             NavigationService.Navigate(coinAnalytics);
         }
     }
