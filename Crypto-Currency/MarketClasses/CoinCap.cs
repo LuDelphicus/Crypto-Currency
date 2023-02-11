@@ -8,7 +8,6 @@ namespace Crypto_Currency.MarketClasses
 {
     public class CoinCap : IMarkets
     {
-        private string coinUri = "https://api.coincap.io/v2/assets/?limit=10";
         public int id = 1;
 
         public static HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -16,8 +15,9 @@ namespace Crypto_Currency.MarketClasses
 
         public List<CoinsList> GetCoinsList() // Get list of top 10 coins
         {
+            string coinUri = "https://api.coincap.io/v2/assets/?limit=10";
             dynamic data = GetUriRespond(coinUri);
-            var list = GetCoinsData(data); // Create list of top 10 coins
+            var list = GetCoinsInfo(data); // Create list of top 10 coins
 
             return list;
         }
@@ -25,21 +25,15 @@ namespace Crypto_Currency.MarketClasses
         public dynamic GetCoinChanges(string coinName) // Get info about coin and changes of price
         {
             string coinChangesUri = $"https://api.coincap.io/v2/assets/{coinName.ToLower()}/history?interval=d1";
-            dynamic uriRespond = GetUriRespond(coinChangesUri);
+            string coinUri = $"https://api.coincap.io/v2/assets/{coinName.ToLower()}";
 
-            var coinChanges = CreateCoinChanges(uriRespond);
-            coinChanges.CoinInfo = GetCoinInfo(coinName);
+            dynamic changesRespond = GetUriRespond(coinChangesUri);
+            dynamic coinRespond = GetUriRespond(coinUri);
+
+            var coinChanges = CreateCoinChanges(changesRespond);
+            coinChanges.CoinInfo = GetCoinsInfo(coinRespond);
 
             return coinChanges;
-        }
-
-        private dynamic GetCoinInfo(string coinName) // Get info about coin ( price, name, symbol, image )
-        {
-            string coinUri = $"https://api.coincap.io/v2/assets/{coinName.ToLower()}";
-            dynamic uriRespond = GetUriRespond(coinUri);
-            var coinData = GetCoinsData(uriRespond);
-
-            return coinData;
         }
 
         private CoinChanges CreateCoinChanges(dynamic data) // Create changing list of coin price 
@@ -77,7 +71,7 @@ namespace Crypto_Currency.MarketClasses
             return data;
         }
 
-        private List<CoinsList> GetCoinsData(dynamic data) // Return detail of coins list ( price, name, symbol and etc )
+        private List<CoinsList> GetCoinsInfo(dynamic data) // Return detail of coin(s) ( price, name, symbol and etc )
         {
             List<CoinsList> resultList = new List<CoinsList>();
 
@@ -85,17 +79,17 @@ namespace Crypto_Currency.MarketClasses
             {
                 foreach (var element in data)
                 {
-                    CreateCoinsDetail(element, resultList);
+                    CreateCoinsInfo(element, resultList);
                 }
 
                 return resultList;
             }
-           
-            CreateCoinsDetail(data, resultList);
+
+            CreateCoinsInfo(data, resultList);
             return resultList;
         }
 
-        private List<CoinsList> CreateCoinsDetail(dynamic data, List<CoinsList> resultList)
+        private List<CoinsList> CreateCoinsInfo(dynamic data, List<CoinsList> resultList)
         {
             string imgUri = $"https://assets.coincap.io/assets/icons/{((string)data.symbol).ToLower()}@2x.png";
             float price = (float)Math.Round((double)data.priceUsd, 2);
