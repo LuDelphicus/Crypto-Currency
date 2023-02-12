@@ -30,7 +30,7 @@ namespace Crypto_Currency.MarketClasses
             var changesRespond = _GetUriRespond(coinChangesUri);
             var coinRespond = _GetUriRespond(coinUri);
 
-            var dataChanges = _CreateCoinChanges(changesRespond);
+            var dataChanges = _CreateCoinHistoricalData(changesRespond);
             List<CoinHistoricalData> resultList = new List<CoinHistoricalData>();
             resultList.Add(new CoinHistoricalData()
             {
@@ -42,7 +42,7 @@ namespace Crypto_Currency.MarketClasses
             return resultList;
         }
 
-        private CoinHistoricalData _CreateCoinChanges(dynamic data) // Create changing list of coin price 
+        private CoinHistoricalData _CreateCoinHistoricalData(dynamic data) // Create changing list of coin price 
         {
             CoinHistoricalData coinChanges = new CoinHistoricalData();
 
