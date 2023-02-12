@@ -37,7 +37,8 @@
 
             <Label Content="24H HIGH" HorizontalAlignment="Left" Margin="564,180,0,0" VerticalAlignment="Top" Foreground="#FFFF" FontFamily="Cascadia Code" FontSize="18"/>
             <Label Content="$14,554.48" HorizontalAlignment="Right" Margin="0,180,10,0" VerticalAlignment="Top" Foreground="#FFFF" FontFamily="Cascadia Code" FontSize="18"/>
-            <Button Name ="buysell_button" Content="Buy/Sell" HorizontalAlignment="Left" Margin="711,60,0,0" VerticalAlignment="Top" Height="28" Width="79" Background="#FFE6DD00" FontFamily="Cascadia Code" RenderTransformOrigin="0.5,0.5" Click="Button_Click">
+            
+            <Button Name ="buysell_button" Content="Buy/Sell" HorizontalAlignment="Left" Margin="711,60,0,0" VerticalAlignment="Top" Height="28" Width="79" Background="#FFE6DD00" FontFamily="Cascadia Code" RenderTransformOrigin="0.5,0.5" Click="BuySell_Click">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"/>

@@ -9,7 +9,7 @@
       Title="Buy/Sell Page"
       Background="#222222">
     <DockPanel Margin="10">
-        <Label Content="➤" Margin="750,-13,0,0" VerticalAlignment="Top" Foreground="#FFFF" FontFamily="Cascadia Code" FontSize="20" RenderTransformOrigin="0.5,0.5">
+        <Label Name="BackPage_Button" Content="➤" Margin="750,-13,0,0" VerticalAlignment="Top" Foreground="#FFFF" FontFamily="Cascadia Code" FontSize="20" RenderTransformOrigin="0.5,0.5" MouseLeftButtonUp="BackPage">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -20,24 +20,23 @@
             </Label.RenderTransform>
         </Label>
         <Grid Background="#1e1e1e">
-            <ListView d:ItemsSource="{d:SampleData ItemCount=5}" Name="listbox1" Background="#222222" BorderBrush="Black" Margin="-780,15,5,-5">
+            <ListView d:ItemsSource="{d:SampleData ItemCount=5}" Name="listbox1" Background="#222222" BorderBrush="Black" Margin="-780,15,5,-5" MouseLeftButtonUp="Market_OpenUri">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="MARKET">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding Name}" Padding="5,10,10,10" FontFamily="Cascadia Code" FontSize="15" Foreground ="#FFFFFF"></TextBlock>
+                                    <TextBlock Text="{Binding ExchangeId}" Padding="5,10,10,10" FontFamily="Cascadia Code" FontSize="15" Foreground ="#FFFFFF"></TextBlock>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
                         <GridViewColumn Header="NAME">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding Name}" Padding="5,10,10,10" FontFamily="Cascadia Code" FontSize="15" Foreground ="#FFFFFF"></TextBlock>
+                                    <TextBlock Text="{Binding Symbol}" Padding="5,10,10,10" FontFamily="Cascadia Code" FontSize="15" Foreground ="#FFFFFF"></TextBlock>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
-
                         <GridViewColumn Header="PRICE">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>

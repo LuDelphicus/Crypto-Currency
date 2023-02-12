@@ -41,6 +41,40 @@ namespace Crypto_Currency.MarketClasses
 
             return resultList;
         }
+        
+        public List<CoinMarketData> GetCoinMarkets(string coinName)
+        {
+            string marketsUri = $"https://api.coincap.io/v2/assets/{coinName.ToLower()}/markets/?limit=10";
+            var marketsRespond = _GetUriRespond(marketsUri);
+
+            var resultList = _CreateMarketData(marketsRespond, coinName);
+            return resultList;
+        }
+
+        private List<CoinMarketData> _CreateMarketData(dynamic data, string coinName)
+        {
+            List<CoinMarketData> resultList = new List<CoinMarketData>();
+
+            foreach (var element in data)
+            {
+                string marketDetailsUri = $"https://api.coincap.io/v2/exchanges/{((string)element.exchangeId).ToLower()}";
+                var marketDetailsRespond = _GetUriRespond(marketDetailsUri);
+
+                string marketUri = marketDetailsRespond == null ? "https://google.com" : marketDetailsRespond.exchangeUrl;
+                float price = (float)Math.Round((double)element.priceUsd, 2);
+
+                resultList.Add(new CoinMarketData()
+                {
+                    ExchangeId = element.exchangeId,
+                    Symbol = element.baseSymbol,
+                    CoinName = coinName,
+                    Price = $"${price.ToString()}",
+                    MarketUri = marketUri
+                });
+            }
+
+            return resultList;
+        }
 
         private CoinHistoricalData _CreateCoinHistoricalData(dynamic data) // Create changing list of coin price 
         {

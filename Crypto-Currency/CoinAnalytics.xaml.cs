@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using System.Collections.Generic;
+using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Markup;
 using Crypto_Currency.MarketClasses;
@@ -11,10 +12,12 @@ namespace Crypto_Currency
         {
             IMarkets coincap = new CoinCap();
             var list = coincap.GetCoinHistoricalData(coinName); // Load CoinChanges
-            
             DataContext = list;
+
             InitializeComponent();
-            //buysell_button.DataContext = list.CoinInfo[0].Explorer;
+
+            var coinMarkets = coincap.GetCoinMarkets(coinName); // Markets where u can buy coin
+            buysell_button.DataContext = coinMarkets;
         }
 
         private void BackPage(object sender, MouseButtonEventArgs e)
@@ -23,13 +26,10 @@ namespace Crypto_Currency
             NavigationService.Navigate(coinsPage);
         }
 
-        private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
+        private void BuySell_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            BuySell buysell = new BuySell();
-            NavigationService.Navigate(buysell);
-
-            //string data = (string)buysell_button.DataContext;
-            //System.Diagnostics.Process.Start(data);
+            BuySell buysellPage = new BuySell((List<CoinMarketData>)buysell_button.DataContext);
+            NavigationService.Navigate(buysellPage);
         }
     }
 }
