@@ -10,7 +10,7 @@ namespace Crypto_Currency
         public CoinAnalytics(string coinName)
         {
             IMarkets coincap = new CoinCap();
-            var list = coincap.GetCoinChanges(coinName); // Load CoinChanges
+            var list = coincap.GetCoinHistoricalData(coinName); // Load CoinChanges
             
             DataContext = list;
             InitializeComponent();

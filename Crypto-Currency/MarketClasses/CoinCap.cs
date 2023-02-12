@@ -22,7 +22,7 @@ namespace Crypto_Currency.MarketClasses
             return list;
         }
 
-        public List<CoinChanges> GetCoinChanges(string coinName) // Get info about coin and changes of price
+        public List<CoinHistoricalData> GetCoinHistoricalData(string coinName) // Get info about coin and changes of price
         {
             string coinChangesUri = $"https://api.coincap.io/v2/assets/{coinName.ToLower()}/history?interval=d1";
             string coinUri = $"https://api.coincap.io/v2/assets/{coinName.ToLower()}";
@@ -31,8 +31,8 @@ namespace Crypto_Currency.MarketClasses
             var coinRespond = _GetUriRespond(coinUri);
 
             var dataChanges = _CreateCoinChanges(changesRespond);
-            List<CoinChanges> resultList = new List<CoinChanges>();
-            resultList.Add(new CoinChanges()
+            List<CoinHistoricalData> resultList = new List<CoinHistoricalData>();
+            resultList.Add(new CoinHistoricalData()
             {
                 HighPrice = dataChanges.HighPrice,
                 LowPrice = dataChanges.LowPrice,
@@ -42,9 +42,9 @@ namespace Crypto_Currency.MarketClasses
             return resultList;
         }
 
-        private CoinChanges _CreateCoinChanges(dynamic data) // Create changing list of coin price 
+        private CoinHistoricalData _CreateCoinChanges(dynamic data) // Create changing list of coin price 
         {
-            CoinChanges coinChanges = new CoinChanges();
+            CoinHistoricalData coinChanges = new CoinHistoricalData();
 
             float priceUsd;
             
