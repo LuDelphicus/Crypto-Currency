@@ -25,8 +25,8 @@ namespace Crypto_Currency
         private bool UseFilter(object coin)
         {
             bool searchBoxEmpty = String.IsNullOrEmpty(SearchBoxFilter.Text);
-            bool searchBoxHasEquals = ((coin as CoinsList).
-                Symbol.IndexOf(SearchBoxFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0) ? true : ((coin as CoinsList).
+            bool searchBoxHasEquals = ((coin as Coin).
+                Symbol.IndexOf(SearchBoxFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0) ? true : ((coin as Coin).
                 Name.IndexOf(SearchBoxFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0);
 
             if (searchBoxEmpty) return true;
@@ -41,7 +41,7 @@ namespace Crypto_Currency
         private void CoinsPage_SendData(object sender, MouseButtonEventArgs e)
         {
             ListView ListItems = (ListView)sender;
-            var data = (CoinsList)ListItems.SelectedItem; // Data of selected row
+            var data = (Coin)ListItems.SelectedItem; // Data of selected row
 
             CoinAnalytics coinAnalytics = new CoinAnalytics(data.Name);
             NavigationService.Navigate(coinAnalytics);

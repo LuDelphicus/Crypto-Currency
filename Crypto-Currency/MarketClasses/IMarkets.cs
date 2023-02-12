@@ -4,7 +4,7 @@ namespace Crypto_Currency.MarketClasses
 {
     public interface IMarkets
     {
-        List<CoinsList> GetCoinsList();
-        dynamic GetCoinChanges(string CoinName);
+        List<Coin> GetCoinsList();
+        List<CoinChanges> GetCoinChanges(string CoinName);
     }
 }

@@ -12,6 +12,6 @@ namespace Crypto_Currency.MarketClasses
     {
         public float HighPrice { get; set; }
         public float LowPrice { get; set; }
-        public dynamic CoinInfo { get; set; }
+        public List<Coin> CoinInfo { get; set; }
     }
 }

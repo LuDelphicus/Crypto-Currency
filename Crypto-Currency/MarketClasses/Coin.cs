@@ -3,7 +3,7 @@ using System.Windows.Media.Imaging;
 
 namespace Crypto_Currency.MarketClasses
 {
-    public class CoinsList
+    public class Coin
     {
         public int Id { get; set; }
         public string Name { get; set; }
