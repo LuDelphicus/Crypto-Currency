@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Crypto_Currency"
         mc:Ignorable="d"
-        Title="MainWindow" Width="820" Height="450">
+        Title="MainWindow" Width="820" Height="450"
+        ResizeMode="NoResize">
     <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
 </Window>

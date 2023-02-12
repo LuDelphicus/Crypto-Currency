@@ -14,12 +14,22 @@ namespace Crypto_Currency
             
             DataContext = list;
             InitializeComponent();
+            //buysell_button.DataContext = list.CoinInfo[0].Explorer;
         }
 
         private void BackPage(object sender, MouseButtonEventArgs e)
         {
             CoinsPage coinsPage = new CoinsPage();
             NavigationService.Navigate(coinsPage);
+        }
+
+        private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            BuySell buysell = new BuySell();
+            NavigationService.Navigate(buysell);
+
+            //string data = (string)buysell_button.DataContext;
+            //System.Diagnostics.Process.Start(data);
         }
     }
 }

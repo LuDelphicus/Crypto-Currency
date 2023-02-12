@@ -102,6 +102,7 @@ namespace Crypto_Currency.MarketClasses
                 Name = (string)data.name,
                 Symbol = (string)data.symbol,
                 ImagePath = new BitmapImage(new Uri(imgUri)),
+                Explorer = (string)data.explorer,
                 Price = $"${price.ToString()}",
                 Changin24h = $"{changing24H.ToString()}%",
                 Chaning24hColor = changing24hColor
