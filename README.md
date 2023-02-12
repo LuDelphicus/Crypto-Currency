@@ -1,10 +1,11 @@
 # Crypto Currency
+Api used: CoinCap
 
 # Implemented functionality:
-Ability to view the top list of coins and brief information about them: price, name, coin symbol, coin image, change percentage for 24 hours.
+**Ability to view the top list of coins and brief information about them: price, name, coin symbol, coin image, change percentage for 24 hours.**
 ![Example](https://cdn.discordapp.com/attachments/868756684527501353/1074431894885765241/image.png)
 
-Ability to search for coins through the input window by symbol or name of coin:
+**Ability to search for coins through the input window by symbol or name of coin:**
 ![Example](https://cdn.discordapp.com/attachments/868756684527501353/1074432179662245998/image.png)
 
 **Ability to view detailed information about the coin. How to do it? Just click on any coin you are interested in in the main menu and you will go to the detailed information menu ( Price, Highest and lowest price in 24 hours, Coin symbol )**
