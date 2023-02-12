@@ -24,7 +24,7 @@ namespace Crypto_Currency.MarketClasses
 
         public List<CoinHistoricalData> GetCoinHistoricalData(string coinName) // Get info about coin and changes of price
         {
-            string coinChangesUri = $"https://api.coincap.io/v2/assets/{coinName.ToLower()}/history?interval=d1";
+            string coinChangesUri = $"https://api.coincap.io/v2/assets/{coinName.ToLower()}/history?interval=m1";
             string coinUri = $"https://api.coincap.io/v2/assets/{coinName.ToLower()}";
 
             var changesRespond = _GetUriRespond(coinChangesUri);
@@ -34,8 +34,8 @@ namespace Crypto_Currency.MarketClasses
             List<CoinHistoricalData> resultList = new List<CoinHistoricalData>();
             resultList.Add(new CoinHistoricalData()
             {
-                HighPrice = dataChanges.HighPrice,
-                LowPrice = dataChanges.LowPrice,
+                HighPrice = (float)Math.Round((double)dataChanges.HighPrice, 2),
+                LowPrice = (float)Math.Round((double)dataChanges.LowPrice, 2),
                 CoinInfo = _GetCoinInfo(coinRespond)
             });
 
@@ -139,6 +139,7 @@ namespace Crypto_Currency.MarketClasses
             resultList.Add(new Coin()
             {
                 Id = id,
+                CoinId = (string)data.id,
                 Name = (string)data.name,
                 Symbol = (string)data.symbol,
                 ImagePath = new BitmapImage(new Uri(imgUri)),

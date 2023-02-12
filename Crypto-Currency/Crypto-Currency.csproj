@@ -58,6 +58,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="BuySell.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CoinAnalytics.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CoinsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -66,14 +78,25 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="BuySell.xaml.cs">
+      <DependentUpon>BuySell.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CoinAnalytics.xaml.cs">
+      <DependentUpon>CoinAnalytics.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CoinsPage.xaml.cs">
+      <DependentUpon>CoinsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MarketClasses\Coin.cs" />
     <Compile Include="MarketClasses\CoinCap.cs" />
-    <Compile Include="MarketClasses\CoinsList.cs" />
+    <Compile Include="MarketClasses\CoinHistoricalData.cs" />
+    <Compile Include="MarketClasses\CoinMarketData.cs" />
     <Compile Include="MarketClasses\IMarkets.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

@@ -43,7 +43,7 @@ namespace Crypto_Currency
             ListView ListItems = (ListView)sender;
             var data = (Coin)ListItems.SelectedItem; // Data of selected row
 
-            CoinAnalytics coinAnalytics = new CoinAnalytics(data.Name);
+            CoinAnalytics coinAnalytics = new CoinAnalytics(data.CoinId);
             NavigationService.Navigate(coinAnalytics);
         }
     }

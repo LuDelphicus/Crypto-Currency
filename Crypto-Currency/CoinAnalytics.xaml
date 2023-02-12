@@ -12,11 +12,11 @@
     <DockPanel>
         <Grid>
             <DockPanel Margin="0,1,496,-1">
-                <Label Content="Bitcoin" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="#FFFF" FontFamily="Cascadia Code" FontSize="30"/>
-                <Label Content="BTC" HorizontalAlignment="Left" Margin="-4,16,0,0" VerticalAlignment="Top" Foreground="#FFFF" FontFamily="Cascadia Code" FontSize="14"/>
+                <Label Content="{Binding CoinInfo[0].Name}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="#FFFF" FontFamily="Cascadia Code" FontSize="30"/>
+                <Label Content="{Binding CoinInfo[0].Symbol}" HorizontalAlignment="Left" Margin="-4,16,0,0" VerticalAlignment="Top" Foreground="#FFFF" FontFamily="Cascadia Code" FontSize="14"/>
             </DockPanel>
 
-            <Label Content="$16,682.25" HorizontalAlignment="Left" Margin="10,96,0,0" VerticalAlignment="Top" Foreground="#FFFF" FontFamily="Cascadia Code" FontSize="45"/>
+            <Label Content="{Binding CoinInfo[0].Price}" HorizontalAlignment="Left" Margin="10,96,0,0" VerticalAlignment="Top" Foreground="#FFFF" FontFamily="Cascadia Code" FontSize="45"/>
             <Label Content="Price" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top" Foreground="#FFFF" FontFamily="Cascadia Code" FontSize="14"/>
             <Label Content="➤" Margin="770,3,0,0" VerticalAlignment="Top" Foreground="#FFFF" FontFamily="Cascadia Code" FontSize="20" RenderTransformOrigin="0.5,0.5" MouseLeftButtonUp="BackPage">
                 <Label.RenderTransform>
@@ -30,13 +30,13 @@
             </Label>
 
             <Label Content="24H %" HorizontalAlignment="Left" Margin="595,104,0,0" VerticalAlignment="Top" Foreground="#FFFF" FontFamily="Cascadia Code" FontSize="18"/>
-            <Label Content="24.5%"  HorizontalAlignment="Right" Margin="0,104,10,0" VerticalAlignment="Top" Foreground="{Binding CoinInfo[0].Chaning24hColor}" FontFamily="Cascadia Code" FontSize="18"/>
+            <Label Content="{Binding CoinInfo[0].Changin24h}"  HorizontalAlignment="Right" Margin="0,104,10,0" VerticalAlignment="Top" Foreground="{Binding CoinInfo[0].Chaning24hColor}" FontFamily="Cascadia Code" FontSize="18"/>
 
             <Label Content="24H LOW" HorizontalAlignment="Left" Margin="575,144,0,0" VerticalAlignment="Top" Foreground="#FFFF" FontFamily="Cascadia Code" FontSize="18"/>
-            <Label Content="$15,554.48" HorizontalAlignment="Right" Margin="0,144,10,0" VerticalAlignment="Top" Foreground="#FFFF" FontFamily="Cascadia Code" FontSize="18"/>
+            <Label Content="{Binding LowPrice}" HorizontalAlignment="Right" Margin="0,144,10,0" VerticalAlignment="Top" Foreground="#FFFF" FontFamily="Cascadia Code" FontSize="18"/>
 
             <Label Content="24H HIGH" HorizontalAlignment="Left" Margin="564,180,0,0" VerticalAlignment="Top" Foreground="#FFFF" FontFamily="Cascadia Code" FontSize="18"/>
-            <Label Content="$14,554.48" HorizontalAlignment="Right" Margin="0,180,10,0" VerticalAlignment="Top" Foreground="#FFFF" FontFamily="Cascadia Code" FontSize="18"/>
+            <Label Content="{Binding HighPrice}" HorizontalAlignment="Right" Margin="0,180,10,0" VerticalAlignment="Top" Foreground="#FFFF" FontFamily="Cascadia Code" FontSize="18"/>
             
             <Button Name ="buysell_button" Content="Buy/Sell" HorizontalAlignment="Left" Margin="711,60,0,0" VerticalAlignment="Top" Height="28" Width="79" Background="#FFE6DD00" FontFamily="Cascadia Code" RenderTransformOrigin="0.5,0.5" Click="BuySell_Click">
                 <Button.Resources>

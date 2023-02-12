@@ -17,3 +17,9 @@ C:\Users\sawa9\source\repos\Crypto-Currency\Crypto-Currency\obj\Debug\Crypto-Cur
 C:\Users\sawa9\source\repos\Crypto-Currency\Crypto-Currency\obj\Debug\Crypto-Currency.csproj.CopyComplete
 C:\Users\sawa9\source\repos\Crypto-Currency\Crypto-Currency\obj\Debug\Crypto-Currency.exe
 C:\Users\sawa9\source\repos\Crypto-Currency\Crypto-Currency\obj\Debug\Crypto-Currency.pdb
+C:\Users\sawa9\source\repos\Crypto-Currency\Crypto-Currency\obj\Debug\BuySell.g.cs
+C:\Users\sawa9\source\repos\Crypto-Currency\Crypto-Currency\obj\Debug\CoinAnalytics.g.cs
+C:\Users\sawa9\source\repos\Crypto-Currency\Crypto-Currency\obj\Debug\CoinsPage.g.cs
+C:\Users\sawa9\source\repos\Crypto-Currency\Crypto-Currency\obj\Debug\BuySell.baml
+C:\Users\sawa9\source\repos\Crypto-Currency\Crypto-Currency\obj\Debug\CoinAnalytics.baml
+C:\Users\sawa9\source\repos\Crypto-Currency\Crypto-Currency\obj\Debug\CoinsPage.baml
